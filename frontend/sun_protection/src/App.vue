@@ -1,6 +1,7 @@
 <script setup>
 import JSON from './components/JSON.vue';
 import Form from './components/Form.vue';
+import UVapi from './UVapi.vue';
 </script>
 
 <template>
@@ -19,7 +20,7 @@ import Form from './components/Form.vue';
   <main>
     <section id="section1" class="section">Section 1 Content <JSON /> </section>
     <section id="section2" class="section">Section 2 Content <Form /> </section>
-    <section id="section3" class="section">Section 3 Content</section>
+    <section id="section3" class="section">Section 3 Content <UVapi /></section>
   </main>
 
   <div>
