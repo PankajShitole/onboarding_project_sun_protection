@@ -22,30 +22,28 @@
           how to safely enjoy the sun.
         </p>
       </div>
-      <img src="https://images.unsplash.com/photo-1506220990430-8b1e267d3c06" alt="Sun Safety" />
+      <img :src="sunProtectionImage" alt="Sun Safety" />
     </section>
   </div>
 </template>
 
 <script setup>
 import { useRouter } from 'vue-router';
-
+import sunProtectionImage from '@/assets/The_Importance_of_Sun_Protection_for_Australian_Kids.webp'; 
 const router = useRouter();
 
 const goToInfo = () => {
-  router.push('/about'); // 导航到 About 页面（你可以修改）
+  router.push('/uv'); 
 };
 </script>
 
 <style scoped>
-/* 页面整体布局 */
 .home {
   width: 100%;
   text-align: center;
   font-family: 'Arial', sans-serif;
 }
 
-/* 顶部 Hero 区域 */
 .hero {
   width: 100%;
   height: 60vh;
@@ -88,7 +86,6 @@ const goToInfo = () => {
   background: #ff9900;
 }
 
-/* 介绍信息区域 */
 .info {
   display: flex;
   align-items: center;
