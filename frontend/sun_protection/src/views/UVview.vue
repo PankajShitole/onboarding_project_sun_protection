@@ -1,23 +1,13 @@
 <template>
-  <div class="page">
-    <h1>UV Page</h1>
-    <p>Welcome to the UV Page!</p>
+  <div class="uv">
+    <h1>UV</h1>
+    <p>Welcome to UV pages</p>
   </div>
 </template>
 
-<style scoped>
-.page {
-  width: 100%;
-  max-width: 900px;
-  padding: 20px;
-  font-size: 24px;
-  background: white;
-  color: black;
-  text-align: center;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  min-height: 60vh; 
-}
+<script setup>
+// No script needed for now
+</script>
+
+<style>
 </style>
