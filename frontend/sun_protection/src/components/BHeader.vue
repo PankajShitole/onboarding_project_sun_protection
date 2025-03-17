@@ -16,6 +16,9 @@
         <li class="nav-item">
           <router-link to="/uv" class="nav-link" active-class="active">UV</router-link>
         </li>
+        <li class="nav-item">
+          <router-link to="/recommend" class="nav-link" active-class="active">Recommendation</router-link>
+        </li>
       </ul>
     </header>
   </div>

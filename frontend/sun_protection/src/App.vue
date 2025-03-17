@@ -1,6 +1,8 @@
 <script setup>
-import BHeader from './components/BHeader.vue'
+import BHeader from './components/BHeader.vue';
+import setReminder from './setReminder.vue';
 </script>
+
 
 <template>
   <div class="main-container">
@@ -11,11 +13,13 @@ import BHeader from './components/BHeader.vue'
     <main class="main-box">
       <router-view></router-view>
     </main>
+      <setReminder/>
   </div>
 </template>
 
+
 <style scoped>
-/* header {
+* header {
   line-height: 1.5;
 }
 
@@ -40,5 +44,6 @@ import BHeader from './components/BHeader.vue'
     place-items: flex-start;
     flex-wrap: wrap;
   }
-} */
+
+}
 </style>

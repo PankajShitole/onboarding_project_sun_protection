@@ -29,11 +29,11 @@
 
 <script setup>
 import { useRouter } from 'vue-router';
-import sunProtectionImage from '@/assets/The_Importance_of_Sun_Protection_for_Australian_Kids.webp'; 
+import sunProtectionImage from '@/assets/The_Importance_of_Sun_Protection_for_Australian_Kids.webp';
 const router = useRouter();
 
 const goToInfo = () => {
-  router.push('/uv'); 
+  router.push('/uv');
 };
 </script>
 
