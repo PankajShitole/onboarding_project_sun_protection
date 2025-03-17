@@ -13,7 +13,9 @@
     <div v-if="loading" class="loading">Loading...</div>
     
     <div v-if="error" class="error">{{ error }}</div>
-
+    <div class="image-container">
+      <img :src="uvScaleImage" alt="uv scale" class="centered-image">
+    </div>
     <div v-if="uvData" class="uv-card" :style="{ backgroundColor: getUVColor(uvData.uv) }">
       <h2>{{ uvData.city }}</h2>
       <p>Latitude: {{ uvData.latitude }}, Longitude: {{ uvData.longitude }}</p>
@@ -25,7 +27,7 @@
 
 <script setup>
 import { ref } from 'vue';
-
+import uvScaleImage from '@/assets/uv_scale.webp';
 const city = ref('');
 const uvData = ref(null);
 const loading = ref(false);
@@ -60,7 +62,7 @@ const getUVColor = (uv) => {
 };
 
 const getUVMessage = (uv) => {
-  if (uv < 3) return '🌿 Low risk. Enjoy the sun!';
+  if (uv < 3) return '🌿 No risk. Enjoy your day!';
   if (uv < 6) return '🧴 Moderate risk. Wear sunscreen!';
   if (uv < 8) return '🕶 High risk. Seek shade!';
   if (uv < 11) return '🔥 Very high risk. Avoid direct sun!';
