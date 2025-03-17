@@ -1,26 +1,35 @@
 <template>
-  <MDBCarousel v-model="carousel1" :items="items1" fade innerClass="rounded-5 shadow-4-strong"/>
+  <!-- 限制轮播图大小 -->
+  <MDBCarousel 
+    v-model="carousel1" 
+    :items="items1" 
+    fade 
+    innerClass="rounded-5 shadow-4-strong carousel-container"
+  />
+
   <div class="home">
     <!-- Hero Section -->
     <section class="hero">
       <div class="overlay">
-        <h1>Protect Your Skin, Enjoy the Sun</h1>
-        <p>Learn how to stay safe from harmful UV rays and prevent skin damage.</p>
-        <button @click="goToInfo">Learn More</button>
+        <h1>Protect Your Skin, Stay Safe Under the Sun</h1>
+        <p>Australia has one of the highest rates of skin cancer. Know your risks and take action today!</p>
+        <div class="button-group">
+          <button @click="goToDataVisualization" class="btn-data">📊 Disease Data</button>
+          <button @click="goToUVIndex" class="btn-uv">☀️ UV Index</button>
+        </div>
       </div>
     </section>
 
     <!-- Info Section -->
     <section class="info">
       <div class="info-content">
-        <h2>Why Sun Protection Matters?</h2>
+        <h2>Why Sun Protection is Essential?</h2>
         <p>
-          Australia has one of the highest rates of <span class="highlight">skin cancer</span> in the world.
-          Proper sun protection reduces the risk of harmful UV exposure and helps maintain healthy skin.
+          Every year, thousands of Australians are diagnosed with <span class="highlight">skin cancer</span>. 
+          Understanding the risks of excessive UV exposure can help you make better decisions for your health.
         </p>
         <p>
-          Discover the best sun protection tips, recommended products, and stay informed about
-          how to safely enjoy the sun.
+          Protecting your skin today means a healthier future. Start by staying informed!
         </p>
       </div>
     </section>
@@ -28,54 +37,65 @@
 </template>
 
 <script setup lang="ts">
-  import { ref } from "vue";
-  import { MDBCarousel } from "mdb-vue-ui-kit";
-
-  const items1 = [
-    {
-      src: sunProtectionImage,
-      alt: "...",
-      href: "https://mdbootstrap.com/docs/vue/content-styles/images/#!",
-      label: "First slide label",
-      caption: "Nulla vitae elit libero, a pharetra augue mollis interdum."
-    },
-    {
-      src: "https://mdbootstrap.com/img/Photos/Slides/img%20(22).webp",
-      alt: "...",
-      label: "Second slide label",
-      caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
-    },
-    {
-      src: "https://mdbootstrap.com/img/Photos/Slides/img%20(23).webp",
-      alt: "...",
-      label: "Third slide label",
-      caption:
-        "Praesent commodo cursus magna, vel scelerisque nisl consectetur."
-    }
-  ];
-
-  const carousel1 = ref(0);
-
-import { useRouter } from 'vue-router';
+import { ref } from "vue";
+import { MDBCarousel } from "mdb-vue-ui-kit";
+import { useRouter } from "vue-router";
 import sunProtectionImage from '@/assets/The_Importance_of_Sun_Protection_for_Australian_Kids.webp'; 
+
 const router = useRouter();
 
-const goToInfo = () => {
-  router.push('/uv'); 
+// const items1 = [
+//   {
+//     src: sunProtectionImage,
+//     alt: "Sun Protection"
+//   },
+//   {
+//     src: "https://mdbootstrap.com/img/Photos/Slides/img%20(22).webp",
+//     alt: "Sun Safety"
+//   },
+//   {
+//     src: "https://mdbootstrap.com/img/Photos/Slides/img%20(23).webp",
+//     alt: "Skin Health"
+//   }
+// ];
+
+const carousel1 = ref(0);
+
+const goToDataVisualization = () => {
+  router.push('/about');
+};
+
+const goToUVIndex = () => {
+  router.push('/uv');
 };
 </script>
 
 <style scoped>
+.carousel-container {
+  max-width: 70%; 
+  height: 300px; 
+  margin: auto; 
+}
+
+
+.carousel-container img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain; 
+}
+
+
 .home {
   width: 100%;
   text-align: center;
   font-family: 'Arial', sans-serif;
 }
 
+
 .hero {
   width: 100%;
   height: 60vh;
-  background:#ffcc00;
+  background: #ffcc00;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -99,22 +119,45 @@ const goToInfo = () => {
   margin-bottom: 20px;
 }
 
-.hero button {
-  background: #ffcc00;
-  color: white;
-  padding: 10px 20px;
+.button-group {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+}
+
+button {
+  padding: 12px 20px;
   font-size: 18px;
   font-weight: bold;
   border: none;
   cursor: pointer;
   border-radius: 5px;
-  transition: background 0.3s ease;
+  transition: background 0.3s ease, transform 0.2s ease;
 }
 
-.hero button:hover {
-  background: #ff9900;
+.btn-data {
+  background: #007bff;
+  color: white;
 }
 
+.btn-uv {
+  background: #ff5733;
+  color: white;
+}
+
+button:hover {
+  transform: scale(1.05);
+}
+
+.btn-data:hover {
+  background: #0056b3;
+}
+
+.btn-uv:hover {
+  background: #d43f00;
+}
+
+/* 📌 Info Section */
 .info {
   display: flex;
   background: white;
@@ -138,7 +181,7 @@ const goToInfo = () => {
 .info p {
   font-size: 18px;
   margin-bottom: 10px;
-  color: #ffcc00;
+  color: #444;
 }
 
 .highlight {

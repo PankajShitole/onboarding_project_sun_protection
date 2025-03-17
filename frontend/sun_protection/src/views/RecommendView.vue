@@ -109,24 +109,21 @@
       return;
     }
   
-    // 初始化结果
+
     let totalFace = 0, totalFaceTeaspoons = 0;
     let totalBody = 0, totalBodyTeaspoons = 0;
     let advice = "";
   
-    // UV 影响计算
     let uvFactor = 1;
     if (uvLevel.value === "3-5") uvFactor = 1.1;
     if (uvLevel.value === "6-7") uvFactor = 1.2;
     if (uvLevel.value === "8+") uvFactor = 1.3;
   
-    // 计算脸部防晒霜用量 (仅当用户选择了 face)
     if (exposedAreas.value.includes("face")) {
       totalFace = 3.73 * uvFactor;
       totalFaceTeaspoons = 0.7 * uvFactor;
     }
   
-    // 计算身体防晒霜用量 (仅当用户选择了 body)
     if (exposedAreas.value.includes("body")) {
       if (gender.value === "female") {
         totalBody = 34 * uvFactor;
@@ -137,7 +134,6 @@
       }
     }
   
-    // 计算 SPF 建议
     if (selectedCategory.value === "pale skin") {
       if (uvLevel.value === "0-2") {
         advice = "Use SPF 30-50.";
@@ -158,7 +154,6 @@
       }
     }
   
-    // 更新计算结果
     result.value = {
       face: totalFace ? totalFace.toFixed(2) : null,
       faceTeaspoons: totalFaceTeaspoons ? totalFaceTeaspoons.toFixed(2) : null,
@@ -188,12 +183,20 @@
   </script>
   
   <style scoped>
+  body {
+  background: linear-gradient(to bottom, #a8c0ff, #3f2b96);
+  font-family: 'Arial', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  margin: 0;
+  }
   /* Global styling */
   .container {
     max-width: 600px;
     margin: auto;
     padding: 30px;
-    background: white;
     text-align: left;
     border-radius: 10px;
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
