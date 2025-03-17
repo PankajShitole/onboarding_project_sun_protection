@@ -65,11 +65,19 @@ const getUVMessage = (uv) => {
 </script>
 
 <style scoped>
-.uv-container { text-align: center; padding: 20px; }
-.input-group { display: flex; justify-content: center; gap: 10px; margin: 20px 0; }
+.uv-container {
+  text-align: center;
+  padding: 20px;
+  min-height: 100vh; /* Ensure full height */
+  background: url('https://images.unsplash.com/photo-1604914420069-514e21d11df4?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D') no-repeat center center;
+  background-size: cover;
+  color:#ff9900;
+}
+.input-group { display: flex; justify-content: center; gap: 10px; margin: 20px 0;}
 input { padding: 10px; font-size: 16px; width: 200px; }
-button { background: #ffcc00; padding: 10px 15px; font-size: 16px; border: none; border-radius: 5px; }
+button { background: #ffcc00; padding: 10px 15px; font-size: 16px; border: none; border-radius: 5px; color: white;}
 button:hover { background: #ff9900; }
 .uv-info { padding: 20px; margin-top: 20px; color: white; border-radius: 10px; }
 .error { color: red; font-weight: bold; }
 </style>
+

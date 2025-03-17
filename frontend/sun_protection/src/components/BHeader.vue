@@ -1,19 +1,14 @@
-<script setup lang="ts">
-</script>
-
 <template>
-  <!-- Using Bootstrap's Header template (starter code) -->
-  <!-- https://getbootstrap.com/docs/5.0/examples/headers/ -->
-  <div class="container">
+  <div class="container-fluid">
     <header class="d-flex justify-content-center py-3">
-      <ul class="nav nav-pills">
-        <li class="nav-item">
+      <ul class="nav nav-pills w-100 d-flex justify-content-between">
+        <li class="nav-item flex-grow-1 text-center">
           <router-link to="/" class="nav-link" active-class="active" aria-current="page">Home</router-link>
         </li>
-        <li class="nav-item">
+        <li class="nav-item flex-grow-1 text-center">
           <router-link to="/about" class="nav-link" active-class="active">About</router-link>
         </li>
-        <li class="nav-item">
+        <li class="nav-item flex-grow-1 text-center">
           <router-link to="/uv" class="nav-link" active-class="active">UV</router-link>
         </li>
       </ul>
@@ -22,7 +17,7 @@
 </template>
 
 <style scoped>
-.b-example-divider {
+/* .b-example-divider {
   height: 3rem;
   background-color: rgba(0, 0, 0, 0.1);
   border: solid rgba(0, 0, 0, 0.15);
@@ -55,5 +50,5 @@
 
 .dropdown-toggle {
   outline: 0;
-}
+} */
 </style>

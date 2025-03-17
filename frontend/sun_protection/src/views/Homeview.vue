@@ -1,4 +1,5 @@
 <template>
+  <MDBCarousel v-model="carousel1" :items="items1" fade innerClass="rounded-5 shadow-4-strong"/>
   <div class="home">
     <!-- Hero Section -->
     <section class="hero">
@@ -22,12 +23,39 @@
           how to safely enjoy the sun.
         </p>
       </div>
-      <img :src="sunProtectionImage" alt="Sun Safety" />
     </section>
   </div>
 </template>
 
-<script setup>
+<script setup lang="ts">
+  import { ref } from "vue";
+  import { MDBCarousel } from "mdb-vue-ui-kit";
+
+  const items1 = [
+    {
+      src: sunProtectionImage,
+      alt: "...",
+      href: "https://mdbootstrap.com/docs/vue/content-styles/images/#!",
+      label: "First slide label",
+      caption: "Nulla vitae elit libero, a pharetra augue mollis interdum."
+    },
+    {
+      src: "https://mdbootstrap.com/img/Photos/Slides/img%20(22).webp",
+      alt: "...",
+      label: "Second slide label",
+      caption: "Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+    },
+    {
+      src: "https://mdbootstrap.com/img/Photos/Slides/img%20(23).webp",
+      alt: "...",
+      label: "Third slide label",
+      caption:
+        "Praesent commodo cursus magna, vel scelerisque nisl consectetur."
+    }
+  ];
+
+  const carousel1 = ref(0);
+
 import { useRouter } from 'vue-router';
 import sunProtectionImage from '@/assets/The_Importance_of_Sun_Protection_for_Australian_Kids.webp'; 
 const router = useRouter();
@@ -47,7 +75,7 @@ const goToInfo = () => {
 .hero {
   width: 100%;
   height: 60vh;
-  background: url('https://images.unsplash.com/photo-1600180758890-6ac614c261aa') no-repeat center center/cover;
+  background:#ffcc00;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -73,9 +101,10 @@ const goToInfo = () => {
 
 .hero button {
   background: #ffcc00;
-  color: black;
+  color: white;
   padding: 10px 20px;
   font-size: 18px;
+  font-weight: bold;
   border: none;
   cursor: pointer;
   border-radius: 5px;
@@ -88,11 +117,12 @@ const goToInfo = () => {
 
 .info {
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding: 40px 10%;
   background: white;
-  text-align: left;
+  text-align: center;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  padding: 40px 10%;
 }
 
 .info-content {
@@ -102,21 +132,17 @@ const goToInfo = () => {
 .info h2 {
   font-size: 28px;
   margin-bottom: 15px;
+  color: #ff9900;
 }
 
 .info p {
   font-size: 18px;
   margin-bottom: 10px;
+  color: #ffcc00;
 }
 
 .highlight {
   color: #007bff;
   font-weight: bold;
-}
-
-.info img {
-  width: 40%;
-  border-radius: 10px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
 }
 </style>
