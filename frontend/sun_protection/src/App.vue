@@ -1,5 +1,6 @@
 <script setup>
-import BHeader from './components/BHeader.vue'
+import BHeader from './components/BHeader.vue';
+import setReminder from './setReminder.vue';
 </script>
 
 <template>
@@ -11,19 +12,12 @@ import BHeader from './components/BHeader.vue'
     <main class="main-box">
       <router-view></router-view>
     </main>
+      <setReminder/>
   </div>
-  <MDBFooter :text="['center', 'lg-start']">
-    <!-- Copyright -->
-    <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.2)">
-      © 2025 Copyright:
-      <a class="text-dark" href="https://mdbootstrap.com/">Sun Protection 365</a>
-    </div>
-    <!-- Copyright -->
-  </MDBFooter>
 </template>
 
 <style scoped>
-/* header {
+* header {
   line-height: 1.5;
 }
 
@@ -48,5 +42,8 @@ import BHeader from './components/BHeader.vue'
     place-items: flex-start;
     flex-wrap: wrap;
   }
-} */
+
+}
 </style>
+
+
