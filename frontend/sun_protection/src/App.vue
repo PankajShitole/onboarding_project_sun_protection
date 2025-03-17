@@ -1,6 +1,6 @@
 <script setup>
-import JSON from './components/JSON.vue';
-import Form from './components/Form.vue';
+import BHeader from './components/BHeader.vue';
+import setReminder from './setReminder.vue';
 </script>
 
 <template>
@@ -8,26 +8,11 @@ import Form from './components/Form.vue';
     <header>
       <BHeader />
     </header>
-  </div>
 
-  <nav class="bg-gray-300 p-4 flex justify-between max-w-4xl mx-auto">
-    <a href="#section1" class="nav-link">Section 1</a>
-    <a href="#section2" class="nav-link">Section 2</a>
-    <a href="#section3" class="nav-link">Section 3</a>
-  </nav>
-
-  <main>
-    <section id="section1" class="section">Section 1 Content <JSON /> </section>
-    <section id="section2" class="section">Section 2 Content <Form /> </section>
-    <section id="section3" class="section">Section 3 Content</section>
-  </main>
-
-  <div>
-    <footer class="p-4 bg-gray-200 text-center text-sm">
-      <a href="/settings" class="mr-4">Setting</a>
-      <a href="/help" class="mr-4">Help</a>
-      web 2025
-    </footer>
+    <main class="main-box">
+      <router-view></router-view>
+    </main>
+      <setReminder/>
   </div>
 </template>
 
