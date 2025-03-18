@@ -6,6 +6,9 @@ import vueDevTools from 'vite-plugin-vue-devtools'
 
 // https://vite.dev/config/
 export default defineConfig({
+  define: {
+    'import.meta.env.VITE_API_BASE_URL': JSON.stringify('https://onboardingprojectsunprotectio-production.up.railway.app')
+  },
   plugins: [
     vue(),
     vueDevTools(),

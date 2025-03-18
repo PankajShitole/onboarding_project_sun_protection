@@ -38,7 +38,7 @@ const fetchUVIndex = async () => {
   error.value = null;
 
   try {
-    const response = await fetch(`http://localhost:5000/api/uv-index?city=${encodeURIComponent(city.value.toUpperCase())}`);
+    const response = await fetch(`https://onboardingprojectsunprotectio-production.up.railway.app/api/uv-index?city=${encodeURIComponent(city.value.toUpperCase())}`);
     const data = await response.json();
 
     if (data.error) {
