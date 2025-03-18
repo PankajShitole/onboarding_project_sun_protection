@@ -22,17 +22,25 @@
       <p class="uv-index">UV Index: <strong>{{ uvData.uv }}</strong></p>
       <p class="uv-message">{{ getUVMessage(uvData.uv) }}</p>
     </div>
+    <div v-if="uvData" class="recommend-box">
+      <p> </p>
+      <button @click="goToRecommendation">Get Your Recommendation</button>
+    </div>
   </div>
 </template>
 
 <script setup>
 import { ref } from 'vue';
 import uvScaleImage from '@/assets/uv_scale.webp';
+import { useRouter } from 'vue-router';
+const router = useRouter();
 const city = ref('');
 const uvData = ref(null);
 const loading = ref(false);
 const error = ref(null);
-
+const goToRecommendation = () => {
+  router.push('/recommend');
+};
 const fetchUVIndex = async () => {
   loading.value = true;
   error.value = null;

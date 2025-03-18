@@ -1,7 +1,7 @@
 <template>
   <div class="home">
     <!-- Hero Section -->
-    <section class="hero">
+    <section class="hero" :style="{ backgroundImage: `url(${sunProtectionImage})` }">
       <div class="overlay">
         <h1>Stay Safe Under the Sun with SPF365+</h1>
         <p>Sun exposure is essential, but too much can put your health at risk. Our platform empowers you with real-time UV monitoring, historical melanoma insights, and personalized protection recommendations—helping you make informed decisions about sun safety every day.</p>
@@ -69,6 +69,7 @@
 </template>
 
 <script setup lang="ts">
+import sunProtectionImage from '@/assets/homepage.jpg';
 import { ref } from "vue";
 import { useRouter } from "vue-router"; 
 
@@ -104,12 +105,15 @@ const goToRecommendation = () => {
 .hero {
   width: 100%;
   height: 60vh;
-  background: #ffcc00;
   display: flex;
   justify-content: center;
   align-items: center;
   position: relative;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
 }
+
 
 .overlay {
   background: rgba(0, 0, 0, 0.5);
