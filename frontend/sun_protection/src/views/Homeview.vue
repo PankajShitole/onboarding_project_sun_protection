@@ -1,65 +1,78 @@
 <template>
-  <!-- 限制轮播图大小 -->
-  <MDBCarousel 
-    v-model="carousel1" 
-    :items="items1" 
-    fade 
-    innerClass="rounded-5 shadow-4-strong carousel-container"
-  />
-
   <div class="home">
     <!-- Hero Section -->
     <section class="hero">
       <div class="overlay">
-        <h1>Protect Your Skin, Stay Safe Under the Sun</h1>
-        <p>Australia has one of the highest rates of skin cancer. Know your risks and take action today!</p>
-        <div class="button-group">
-          <button @click="goToDataVisualization" class="btn-data">📊 Disease Data</button>
-          <button @click="goToUVIndex" class="btn-uv">☀️ UV Index</button>
-        </div>
+        <h1>Stay Safe Under the Sun with SPF365+</h1>
+        <p>Sun exposure is essential, but too much can put your health at risk. Our platform empowers you with real-time UV monitoring, historical melanoma insights, and personalized protection recommendations—helping you make informed decisions about sun safety every day.</p>
       </div>
     </section>
 
-    <!-- Info Section -->
-    <section class="info">
-      <div class="info-content">
-        <h2>Why Sun Protection is Essential?</h2>
-        <p>
-          Every year, thousands of Australians are diagnosed with <span class="highlight">skin cancer</span>. 
-          Understanding the risks of excessive UV exposure can help you make better decisions for your health.
-        </p>
-        <p>
-          Protecting your skin today means a healthier future. Start by staying informed!
-        </p>
+    <div class="container px-4 py-5" id="hanging-icons">
+      <h2 class="pb-2 border-bottom">What We Offer</h2>
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
+        <div class="col d-flex align-items-start">
+          <div>
+            <h3 class="fs-2 text-body-emphasis">🌞 Live UV Index Tracking</h3>
+            <p>With our UV Index Checker, you can quickly look up the current UV radiation levels based on location, helping you plan outdoor activities while minimizing UV risks.</p>
+            <a @click="goToUVIndex" class="btn btn-primary">
+              Try the UV checker
+            </a>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <div>
+            <h3 class="fs-2 text-body-emphasis">📊 Understanding UV Impact</h3>
+            <p>Our data visualization tool presents a clear relationship between UV exposure, historical skin cancer incidence, and mortality rates across different regions over time.</p>
+            <a @click="goToDataVisualization" class="btn btn-primary">
+              View the data
+            </a>
+          </div>
+        </div>
+        <div class="col d-flex align-items-start">
+          <div>
+            <h3 class="fs-2 text-body-emphasis">🛡️ Personalized Sun Protection</h3>
+            <p>Get tailored sun protection recommendations and notifications based on your skin type and UV intensity, helping you develop good habits and reduce skin damage risks.</p>
+            <a @click="goToRecommendation" class="btn btn-primary">
+              Get your recommendations
+            </a>
+          </div>
+        </div>
       </div>
-    </section>
+    </div>
+
+    <!-- Info Section -->
+    <div class="container_info">
+      <section class="info">
+        <div class="info-content">
+          <h2>Why Sun Protection is Essential?</h2>
+          <p>
+            Every year, thousands of Australians are diagnosed with <span class="highlight">skin cancer</span>. 
+            Understanding the risks of excessive UV exposure can help you make better decisions for your health.
+          </p>
+          <p>
+            Protecting your skin today means a healthier future. Start by staying informed!
+          </p>
+        </div>
+      </section>
+
+      <section class="webinfo">
+        <div class="info-content">
+          <h2>About this website</h2>
+          <p>
+            SPF365+ is an innovative platform designed to help users understand skin cancer risks, UV index levels, and personalized sun protection strategies. Our goal is to provide easy access to essential UV protection information, enabling users to take proactive steps in safeguarding their skin.
+          </p>
+        </div>
+      </section>
+    </div>
   </div>
 </template>
 
 <script setup lang="ts">
 import { ref } from "vue";
-import { MDBCarousel } from "mdb-vue-ui-kit";
-import { useRouter } from "vue-router";
-import sunProtectionImage from '@/assets/The_Importance_of_Sun_Protection_for_Australian_Kids.webp'; 
+import { useRouter } from "vue-router"; 
 
 const router = useRouter();
-
-// const items1 = [
-//   {
-//     src: sunProtectionImage,
-//     alt: "Sun Protection"
-//   },
-//   {
-//     src: "https://mdbootstrap.com/img/Photos/Slides/img%20(22).webp",
-//     alt: "Sun Safety"
-//   },
-//   {
-//     src: "https://mdbootstrap.com/img/Photos/Slides/img%20(23).webp",
-//     alt: "Skin Health"
-//   }
-// ];
-
-const carousel1 = ref(0);
 
 const goToDataVisualization = () => {
   router.push('/about');
@@ -68,29 +81,25 @@ const goToDataVisualization = () => {
 const goToUVIndex = () => {
   router.push('/uv');
 };
+
+const goToRecommendation = () => {
+  router.push('/recommend');
+};
 </script>
 
 <style scoped>
-.carousel-container {
-  max-width: 70%; 
-  height: 300px; 
-  margin: auto; 
+.container_info {
+  display: flex;
+  align-items: center;
+  margin: 0 auto; /* Centers the container */
+  padding: 0 5%;
 }
-
-
-.carousel-container img {
-  width: 100%;
-  height: 100%;
-  object-fit: contain; 
-}
-
 
 .home {
   width: 100%;
   text-align: center;
   font-family: 'Arial', sans-serif;
 }
-
 
 .hero {
   width: 100%;
@@ -157,19 +166,16 @@ button:hover {
   background: #d43f00;
 }
 
-/* 📌 Info Section */
-.info {
-  display: flex;
+/* Info Section */
+.info, .webinfo {
+  flex: 1;
   background: white;
   text-align: center;
-  justify-content: center;
-  align-items: center;
-  position: relative;
-  padding: 40px 10%;
+  padding: 40px 5%;
 }
 
 .info-content {
-  width: 50%;
+  width: 80%;
 }
 
 .info h2 {
@@ -179,6 +185,18 @@ button:hover {
 }
 
 .info p {
+  font-size: 18px;
+  margin-bottom: 10px;
+  color: #444;
+}
+
+.webinfo h2 {
+  font-size: 28px;
+  margin-bottom: 15px;
+  color:#ffcc00;
+}
+
+.webinfo p {
   font-size: 18px;
   margin-bottom: 10px;
   color: #444;
