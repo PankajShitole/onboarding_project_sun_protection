@@ -3,11 +3,6 @@
     <div class="header">
       <h1>📊 Data Visualization</h1>
     </div>
-
-    <div ref="tableauContainer" class="tableauPlaceholder viz-card">
-      <p v-if="loading" class="loading">Loading Tableau visualization...</p>
-    </div>
-
     <div class="description">
       <p>
         Looking at the data, a clear pattern emerges. In 2011, melanoma incidence was relatively lower, but as UV levels gradually increased over the following years, so did the number of cases.
@@ -15,6 +10,12 @@
       <p>
         Between 2012 and 2018, the fluctuations in UV exposure closely align with the rise in melanoma cases. In 2018, when mean UV levels saw a slight drop, the steady increase in melanoma cases also slowed in 2019, suggesting a possible link between reduced UV exposure and a decline in incidence.
       </p>
+    </div>
+    <div ref="tableauContainer" class="tableauPlaceholder viz-card">
+      <p v-if="loading" class="loading">Loading Tableau visualization...</p>
+    </div>
+
+    <div class="description">
       <h2>Stay Informed & Protected with Our Website</h2>
       <ul>
         <li>🌞 <strong>Live UV Index Tracking</strong>: Instantly check real-time UV levels for your location to plan outdoor activities safely.</li>
