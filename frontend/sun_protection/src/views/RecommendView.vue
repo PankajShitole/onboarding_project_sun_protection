@@ -1,42 +1,44 @@
 <template>
+  <div class="bg">
     <div class="container">
-      <h1>Sunscreen Usage Calculator</h1>
-  
+      <h1>🧴 Sunscreen Usage Calculator</h1>
+      <p class="subtitle">Get your personal sun protection suggestion here!</p>
+
       <!-- Gender Selection -->
       <div class="form-group">
         <label>Gender:</label>
-        <select v-model="gender">
+        <select v-model="gender" class="form-control">
           <option value="female">Female</option>
           <option value="male">Male</option>
         </select>
       </div>
-  
+
       <div class="divider"></div>
-  
+
       <!-- Exposed Skin Area Selection -->
       <div class="form-group">
         <label>Exposed Skin Areas:</label>
-        <div>
-          <input type="checkbox" v-model="exposedAreas" value="face" /> Face
-          <input type="checkbox" v-model="exposedAreas" value="body" /> Body
+        <div class="checkbox-group">
+          <label><input type="checkbox" v-model="exposedAreas" value="face"/> Face</label>
+          <label><input type="checkbox" v-model="exposedAreas" value="body"/> Body</label>
         </div>
       </div>
-  
+
       <div class="divider"></div>
-  
+
       <!-- UV Level Selection -->
       <div class="form-group">
         <label>UV Level:</label>
-        <select v-model="uvLevel">
+        <select v-model="uvLevel" class="form-control">
           <option value="0-2">Low (0-2)</option>
           <option value="3-5">Moderate (3-5)</option>
           <option value="6-7">High (6-7)</option>
           <option value="8+">Very High (8+)</option>
         </select>
       </div>
-  
+
       <div class="divider"></div>
-  
+
       <!-- Skin Type Selection -->
       <div class="form-group">
         <label>Select Your Skin Type:</label>
@@ -53,30 +55,31 @@
         </div>
         <p v-if="!selectedSkinType" class="warning">Please select your skin type!</p>
       </div>
-  
+
       <div class="divider"></div>
-  
+
       <!-- Calculation Button -->
-      <button @click="calculateSunscreen">Calculate Sunscreen Usage</button>
-  
+      <button class="btn-calculate" @click="calculateSunscreen">Calculate Sunscreen Usage</button>
+
       <div class="divider"></div>
-  
+
       <!-- Results Display -->
       <div v-if="result">
         <h2>Sunscreen Usage</h2>
         <p v-if="result.face">Face: {{ result.face }} ml ({{ result.faceTeaspoons }} teaspoons)</p>
         <p v-if="result.body">Body: {{ result.body }} ml ({{ result.bodyTeaspoons }} teaspoons)</p>
-  
+
         <div class="divider"></div>
-  
-        <!-- <h2>Your Skin Category: {{ selectedCategory }}</h2> -->
+
         <h2>Sunscreen Recommendation</h2>
         <p>{{ result.advice }}</p>
       </div>
     </div>
-  </template>
+  </div>
+</template>
+
   
-  <script>
+<script>
   import { ref, computed } from "vue";
   
   export default {
@@ -180,10 +183,14 @@
       };
     },
   };
-  </script>
+</script>
   
-  <style scoped>
-  body {
+<style scoped>
+.bg {
+  background: linear-gradient(to bottom, #87CEFA, #f0f8ff);
+}
+
+/*   body {
   background: linear-gradient(to bottom, #a8c0ff, #3f2b96);
   font-family: 'Arial', sans-serif;
   display: flex;
@@ -191,94 +198,110 @@
   align-items: center;
   height: 100vh;
   margin: 0;
-  }
-  /* Global styling */
-  .container {
-    max-width: 600px;
-    margin: auto;
-    padding: 30px;
-    text-align: left;
-    border-radius: 10px;
-    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.1);
-  }
-  
-  h1 {
-    font-size: 24px;
-    font-weight: bold;
-    color: #333;
-  }
-  
-  .form-group {
-    margin-bottom: 20px;
-    font-size: 18px;
-  }
-  
-  label {
-    font-weight: bold;
-  }
-  
-  /* Divider (light gray line) */
-  .divider {
-    width: 100%;
-    height: 2px;
-    background: rgba(200, 200, 200, 0.5);
-    margin: 15px 0;
-  }
-  
-  /* Skin type selection */
-  .skin-types {
-    display: flex;
-    justify-content: space-around;
-    flex-wrap: wrap;
-  }
-  
-  .skin-box {
-    cursor: pointer;
-    padding: 10px;
-    text-align: center;
-    border-radius: 10px;
-    transition: transform 0.2s ease-in-out;
-    border: 2px solid transparent;
-  }
-  
-  .skin-box:hover {
-    transform: scale(1.1);
-  }
-  
-  .selected {
-    border: 3px solid #007bff;
-  }
-  
-  .color-circle {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin: 0 auto;
-  }
-  
-  button {
-    width: 100%;
-    padding: 12px;
-    font-size: 18px;
-    background: #007bff;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    transition: background 0.3s;
-  }
-  
-  button:hover {
-    background: #0056b3;
-  }
-  
-  /* Warning message */
-  .warning {
-    color: red;
-    font-size: 16px;
-    font-weight: bold;
-  }
-  </style>
+  } */
+
+/* Container */
+.container {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  width: 90%;
+  max-width: 600px;
+  text-align: center;
+}
+
+.checkbox-group {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+  margin-top: 10px;
+}
+
+.form-control {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: white;
+  cursor: pointer;
+  appearance: auto;
+}
+
+.skin-types {
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-bottom: 10px;
+}
+
+/* Skin Box Styling */
+.skin-box {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid #ddd;
+  border-radius: 8px;
+  cursor: pointer;
+  width: 100px;
+  text-align: center;
+  flex-shrink: 0;
+}
+
+.skin-box.selected {
+  border-color: #007bff;
+}
+
+/* Skin Type Color Circle */
+.color-circle {
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  margin-bottom: 5px;
+}
+
+/* Form Group Styling */
+.form-group {
+  text-align: left;
+  margin-bottom: 20px;
+}
+.form-group label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Error Message */
+.warning {
+  color: red;
+  font-weight: bold;
+  margin-top: 10px;
+}
+
+/* Button Styling */
+.btn-calculate {
+  background-color: #007bff;
+  color: white;
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  cursor: pointer;
+  width: 100%;
+}
+
+.btn-calculate:hover {
+  background-color: #0056b3;
+}
+
+/* Divider */
+.divider {
+  border-top: 1px solid #ddd;
+  margin: 20px 0;
+}
+</style>
   
   
   

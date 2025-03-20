@@ -13,6 +13,17 @@ import setReminder from './setReminder.vue';
       <router-view></router-view>
     </main>
       <setReminder/>
+
+    <footer class="footer">
+      <div class="footer-container">
+        <p>© {{ new Date().getFullYear() }} SPF365+. All rights reserved.</p>
+        <div class="footer-links">
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Service</a>
+          <a href="#">Contact Us</a>
+        </div>
+      </div>
+    </footer>
   </div>
 </template>
 
@@ -42,8 +53,37 @@ import setReminder from './setReminder.vue';
     place-items: flex-start;
     flex-wrap: wrap;
   }
-
 }
+
+.footer {
+  background-color: #f8f9fa;
+  padding: 20px 0;
+  text-align: center;
+  font-size: 14px;
+  color: #555;
+  margin-top: 30px;
+}
+
+.footer-container {
+  width: 90%;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.footer-links {
+  margin-top: 10px;
+}
+
+.footer-links a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-links a:hover {
+  text-decoration: underline;
+}
+
 </style>
 
 

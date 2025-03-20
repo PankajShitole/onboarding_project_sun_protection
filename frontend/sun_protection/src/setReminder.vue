@@ -89,10 +89,10 @@ const toggleMinimize = () => {
 /* Keep the reminder box fixed in the bottom right corner */
 .reminder-widget {
   position: fixed;
-  bottom: 20px;
+  bottom: 10px;
   right: 20px;
   background-color: #fff;
-  padding: 15px;
+  padding: 10px;
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   width: 300px;
@@ -104,7 +104,10 @@ const toggleMinimize = () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  font-size: 18px;
+}
+
+h1{
+  font-size: 20px;
 }
 
 /* Minimize button */

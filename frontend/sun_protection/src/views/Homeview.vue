@@ -10,36 +10,31 @@
 
     <div class="container px-4 py-5" id="hanging-icons">
       <h2 class="pb-2 border-bottom">What We Offer</h2>
-      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3">
-        <div class="col d-flex align-items-start">
-          <div>
-            <h3 class="fs-2 text-body-emphasis">🌞 Live UV Index Tracking</h3>
-            <p>With our UV Index Checker, you can quickly look up the current UV radiation levels based on location, helping you plan outdoor activities while minimizing UV risks.</p>
-            <a @click="goToUVIndex" class="btn btn-primary">
-              Try the UV checker
-            </a>
-          </div>
+      <div class="row g-4 py-5 row-cols-1 row-cols-lg-3 align-items-stretch text-center">
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+          <h3 class="fs-2 text-body-emphasis">🌞 Live UV Index Tracking</h3>
+          <p>With our UV Index Checker, you can quickly look up the current UV radiation levels based on location, helping you plan outdoor activities while minimizing UV risks.</p>
+          <a @click="goToUVIndex" class="btn btn-primary">
+            Try the UV checker
+          </a>
         </div>
-        <div class="col d-flex align-items-start">
-          <div>
-            <h3 class="fs-2 text-body-emphasis">📊 Understanding UV Impact</h3>
-            <p>Our data visualization tool presents a clear relationship between UV exposure, historical skin cancer incidence, and mortality rates across different regions over time.</p>
-            <a @click="goToDataVisualization" class="btn btn-primary">
-              View the data
-            </a>
-          </div>
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+          <h3 class="fs-2 text-body-emphasis">📊 Understanding UV Impact</h3>
+          <p>Our data visualization tool presents a clear relationship between UV exposure, historical skin cancer incidence, and mortality rates across different regions over time.</p>
+          <a @click="goToDataVisualization" class="btn btn-primary">
+            View the data
+          </a>
         </div>
-        <div class="col d-flex align-items-start">
-          <div>
-            <h3 class="fs-2 text-body-emphasis">🛡️ Personalized Sun Protection</h3>
-            <p>Get tailored sun protection recommendations and notifications based on your skin type and UV intensity, helping you develop good habits and reduce skin damage risks.</p>
-            <a @click="goToRecommendation" class="btn btn-primary">
-              Get your recommendations
-            </a>
-          </div>
+        <div class="col d-flex flex-column justify-content-center align-items-center">
+          <h3 class="fs-2 text-body-emphasis">🛡️ Personalized Sun Protection</h3>
+          <p>Get tailored sun protection recommendations and notifications based on your skin type and UV intensity, helping you develop good habits and reduce skin damage risks.</p>
+          <a @click="goToRecommendation" class="btn btn-primary">
+            Get your recommendations
+          </a>
         </div>
       </div>
     </div>
+
 
     <!-- Info Section -->
     <div class="container_info">
@@ -179,7 +174,7 @@ button:hover {
 }
 
 .info-content {
-  width: 80%;
+  width: 100%;
 }
 
 .info h2 {

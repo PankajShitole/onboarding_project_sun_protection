@@ -2,12 +2,12 @@
   <div class="uv-container">
     <div class="header">
       <h1>🌞 UV Index Checker</h1>
-      <p>Enter a city name to check the current UV index</p>
+      <p>Enter any suburb name in Melbourne or Melbourne to check its current UV index</p>
     </div>
 
     <div class="search-box">
-      <input type="text" v-model="city" placeholder="Enter city name (e.g. Melbourne)" />
-      <button @click="fetchUVIndex">🔍 Search</button>
+      <input type="text" v-model="city" placeholder="Enter suburb name (e.g. Clayton)" />
+      <button @click="fetchUVIndex">🔍 Check</button>
     </div>
 
     <div v-if="loading" class="loading">Loading...</div>
@@ -70,7 +70,8 @@ const getUVColor = (uv) => {
 };
 
 const getUVMessage = (uv) => {
-  if (uv < 3) return '🌿 No risk. Enjoy your day!';
+  if (uv = 0) return '🌿 No risk. Enjoy your day!';
+  if (uv < 3) return '🌿 No risk. Enjoy the sun!';
   if (uv < 6) return '🧴 Moderate risk. Wear sunscreen!';
   if (uv < 8) return '🕶 High risk. Seek shade!';
   if (uv < 11) return '🔥 Very high risk. Avoid direct sun!';
