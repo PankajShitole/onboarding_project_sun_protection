@@ -106,20 +106,35 @@ export default {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: 0.3s ease-in-out;
   width: 100%; 
-  max-width: 2100px; 
+  max-width: 100%; 
   height: auto; 
   display: flex;
   justify-content: center;
-  align-items: center;
-  transform: scale(0.8); 
+  transform: scale(0.6); 
   transform-origin: center;
+  align-items: center;
   overflow: hidden; 
 }
+
+.viz-card object {
+  width: 100% !important;
+  height: 100vh !important;
+  max-width: 100%;
+  max-height: 90vh;
+}
+
 @media (max-width: 1200px) {
-  .viz-card {
-    width: 100%;
+  .viz-card object {
+    height: 80vh !important;
   }
 }
+
+@media (max-width: 768px) {
+  .viz-card object {
+    height: 70vh !important;
+  }
+}
+
 .description {
   margin-top: 30px;
   text-align: left;
