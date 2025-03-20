@@ -7,6 +7,20 @@
     <div ref="tableauContainer" class="tableauPlaceholder viz-card">
       <p v-if="loading" class="loading">Loading Tableau visualization...</p>
     </div>
+
+    <div class="description">
+      <p>
+        Looking at the data, a clear pattern emerges. In 2011, melanoma incidence was relatively lower, but as UV levels gradually increased over the following years, so did the number of cases.
+      </p>
+      <p>
+        Between 2012 and 2018, the fluctuations in UV exposure closely align with the rise in melanoma cases. In 2018, when mean UV levels saw a slight drop, the steady increase in melanoma cases also slowed in 2019, suggesting a possible link between reduced UV exposure and a decline in incidence.
+      </p>
+      <h2>Stay Informed & Protected with Our Website</h2>
+      <ul>
+        <li>🌞 <strong>Live UV Index Tracking</strong>: Instantly check real-time UV levels for your location to plan outdoor activities safely.</li>
+        <li>🛡️ <strong>Personalized Sun Protection</strong>: Get tailored recommendations based on your skin type and UV exposure, helping you build sun-safe habits.</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -24,44 +38,51 @@ export default {
     loadTableau() {
       let divElement = this.$refs.tableauContainer;
       divElement.innerHTML = `
-        <noscript>
-          <img alt='Dashboard' src='https://public.tableau.com/static/images/Mo/Mortality_vs_Incidence/Dashboard2/1_rss.png' style='border: none' />
-        </noscript>
-        <object class='tableauViz'>
-          <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-          <param name='embed_code_version' value='3' />
-          <param name='site_root' value='' />
-          <param name='name' value='Mortality_vs_Incidence/Dashboard2' />
-          <param name='tabs' value='no' />
-          <param name='toolbar' value='yes' />
-          <param name='static_image' value='https://public.tableau.com/static/images/Mo/Mortality_vs_Incidence/Dashboard2/1.png' />
-          <param name='animate_transition' value='yes' />
-          <param name='display_static_image' value='yes' />
-          <param name='display_spinner' value='yes' />
-          <param name='display_overlay' value='yes' />
-          <param name='display_count' value='yes' />
-          <param name='language' value='en-US' />
-        </object>
+        <div class='tableauPlaceholder' id='viz1742471030838' style='position: relative'>
+          <noscript>
+            <img alt='Dashboard 1' src='https://public.tableau.com/static/images/Me/MelanomaCancerIncidenceCountandMeanUVperyear/Dashboard1/1_rss.png' style='border: none' />
+          </noscript>
+          <object class='tableauViz' style='display:none;'>
+            <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
+            <param name='embed_code_version' value='3' />
+            <param name='site_root' value='' />
+            <param name='name' value='MelanomaCancerIncidenceCountandMeanUVperyear/Dashboard1' />
+            <param name='tabs' value='no' />
+            <param name='toolbar' value='yes' />
+            <param name='static_image' value='https://public.tableau.com/static/images/Me/MelanomaCancerIncidenceCountandMeanUVperyear/Dashboard1/1.png' />
+            <param name='animate_transition' value='yes' />
+            <param name='display_static_image' value='yes' />
+            <param name='display_spinner' value='yes' />
+            <param name='display_overlay' value='yes' />
+            <param name='display_count' value='yes' />
+            <param name='language' value='en-US' />
+            <param name='filter' value='publish=yes' />
+          </object>
+        </div>
       `;
-
+      
       let vizElement = divElement.getElementsByTagName("object")[0];
-      vizElement.style.width = "100%"; 
-      vizElement.style.height = "900px";
-
+      if (divElement.offsetWidth > 800) {
+        vizElement.style.width = "1900px";
+        vizElement.style.height = "927px";
+      } else if (divElement.offsetWidth > 500) {
+        vizElement.style.width = "1900px";
+        vizElement.style.height = "927px";
+      } else {
+        vizElement.style.width = "100%";
+        vizElement.style.height = "727px";
+      }
+      
       let scriptElement = document.createElement("script");
       scriptElement.src = "https://public.tableau.com/javascripts/api/viz_v1.js";
-      scriptElement.onload = () => {
-        new window.tableau.Viz(divElement, "https://public.tableau.com/views/Mortality_vs_Incidence/Dashboard2");
-        this.loading = false;
-      };
-      document.body.appendChild(scriptElement);
+      vizElement.parentNode.insertBefore(scriptElement, vizElement);
+      this.loading = false;
     },
   },
 };
 </script>
 
 <style scoped>
-
 .tableau-container {
   text-align: center;
   padding: 40px 20px;
@@ -77,9 +98,6 @@ export default {
   font-size: 28px;
   color: #333;
 }
-.header p {
-  color: #555;
-}
 
 .viz-card {
   background: white;
@@ -87,42 +105,31 @@ export default {
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: 0.3s ease-in-out;
-  animation: fadeIn 0.5s ease-in-out;
-
-  width: 1200px;
-  max-width: 95%;
-  height: 600px;  
-  overflow-y: auto;  
-  overflow-x: auto;  
-  margin: 0 auto;  
-
+  width: 100%; 
+  max-width: 2100px; 
+  height: auto; 
   display: flex;
   justify-content: center;
   align-items: center;
+  transform: scale(0.8); 
+  transform-origin: center;
+  overflow: hidden; 
 }
-
-.tableauViz {
-  max-width: 100%;
-  width: auto;
-  display: block;
-  margin: 0 auto;
+@media (max-width: 1200px) {
+  .viz-card {
+    width: 100%;
+  }
+}
+.description {
+  margin-top: 30px;
+  text-align: left;
+  max-width: 900px;
+  font-size: 16px;
+  line-height: 1.5;
 }
 
 .loading {
   font-size: 18px;
   color: #007bff;
 }
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
 </style>
-
-
