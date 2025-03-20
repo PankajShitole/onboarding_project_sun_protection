@@ -1,25 +1,34 @@
 <template>
   <div class="reminder-widget">
-    <h1>Set a Reminder</h1>
-
-    <div class="reminder-input">
-      <input v-model="reminder" placeholder="Enter reminder name..." />
-      <input v-model.number="hours" type="number" placeholder="Hours" min="0" />
-      <input v-model.number="minutes" type="number" placeholder="Minutes" min="0" />
+    <!-- Header with Minimize Button -->
+    <div class="reminder-header">
+      <h1>Set a Reminder</h1>
+      <button class="minimize-btn" @click="toggleMinimize">
+        {{ isMinimized ? '🔼' : '🔽' }}
+      </button>
     </div>
 
-    <!-- Buttons placed in the same row -->
-    <div class="button-group">
-      <button class="add-btn" @click="addReminder">Add Reminder</button>
-      <button class="clear-btn" @click="clearReminders">Clear All</button>
-    </div>
+    <!-- Reminder content (hidden when minimized) -->
+    <div v-if="!isMinimized">
+      <div class="reminder-input">
+        <input v-model="reminder" placeholder="Enter reminder name..." />
+        <input v-model.number="hours" type="number" placeholder="Hours" min="0" />
+        <input v-model.number="minutes" type="number" placeholder="Minutes" min="0" />
+      </div>
 
-    <ul class="reminder-list">
-      <li v-for="(item, index) in reminders" :key="index" class="reminder-item">
-        {{ item.text }} ({{ item.hours }}h {{ item.minutes }}m)
-        <button class="clear-btn" @click="removeReminder(index)">Clear</button>
-      </li>
-    </ul>
+      <!-- Buttons placed in the same row -->
+      <div class="button-group">
+        <button class="add-btn" @click="addReminder">Add Reminder</button>
+        <button class="clear-btn" @click="clearReminders">Clear All</button>
+      </div>
+
+      <ul class="reminder-list">
+        <li v-for="(item, index) in reminders" :key="index" class="reminder-item">
+          {{ item.text }} ({{ item.hours }}h {{ item.minutes }}m)
+          <button class="clear-btn" @click="removeReminder(index)">Clear</button>
+        </li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -31,6 +40,7 @@ const reminder = ref('');
 const reminders = reactive([]);
 const hours = ref(null);
 const minutes = ref(null);
+const isMinimized = ref(false); // Track if the widget is minimized
 
 // Function to add a reminder
 const addReminder = () => {
@@ -68,6 +78,11 @@ const clearReminders = () => {
 const removeReminder = (index) => {
   reminders.splice(index, 1);
 };
+
+// Toggle minimize state
+const toggleMinimize = () => {
+  isMinimized.value = !isMinimized.value;
+};
 </script>
 
 <style>
@@ -81,6 +96,23 @@ const removeReminder = (index) => {
   border-radius: 8px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   width: 300px;
+  transition: height 0.3s ease-in-out;
+}
+
+/* Header section with minimize button */
+.reminder-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 18px;
+}
+
+/* Minimize button */
+.minimize-btn {
+  background: none;
+  border: none;
+  font-size: 18px;
+  cursor: pointer;
 }
 
 /* Remove black borders from input fields */
@@ -143,5 +175,3 @@ button:hover {
   align-items: center;
 }
 </style>
-
-
