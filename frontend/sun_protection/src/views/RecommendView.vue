@@ -138,24 +138,32 @@
     }
   
     if (selectedCategory.value === "pale skin") {
-      if (uvLevel.value === "0-2") {
-        advice = "Use SPF 30-50.";
-      } else {
-        advice = "Use SPF 50 and avoid prolonged sun exposure.";
-      }
-    } else if (selectedCategory.value === "darker white skin") {
-      if (uvLevel.value === "0-2") {
-        advice = "Use SPF 15-30.";
-      } else {
-        advice = "Use SPF 30-50.";
-      }
-    } else if (selectedCategory.value === "darker skin") {
-      if (uvLevel.value === "0-2") {
-        advice = "Sunscreen is optional, but SPF 15 is recommended.";
-      } else {
-        advice = "Use SPF 30 if needed.";
-      }
-    }
+     if (uvLevel.value === "0-2") {
+       advice = "Use SPF 30-50.";
+     } else {
+       advice = "Use SPF 50 and avoid prolonged sun exposure.";
+     }
+   } else if (selectedCategory.value === "darker white skin") {
+    if (uvLevel.value === "0-2") {
+       advice = "Use SPF 15-30.";
+     } if (uvLevel.value == "3-5") {
+       advice = "Use SPF 30-50 and ware hat and sunglasses.";
+     }
+       else {
+         advice = "Use SPF 50 and avoid prolonged sun exposure.";
+       }
+     }
+    else if (selectedCategory.value === "darker skin") {
+     if (uvLevel.value === "0-2") {
+       advice = "Sunscreen is optional, but SPF 15 is recommended.";
+     } else {
+       advice = "Use SPF 30 if needed.";
+     } if (uvLevel.value == "6-7"||uvLevel.value == "8+") {
+       advice = "Use SPF 50 and avoid prolonged sun exposure.";
+     }
+   }
+
+
   
     result.value = {
       face: totalFace ? totalFace.toFixed(2) : null,

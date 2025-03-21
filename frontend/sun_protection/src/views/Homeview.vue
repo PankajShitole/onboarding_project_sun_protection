@@ -4,7 +4,7 @@
     <section class="hero" :style="{ backgroundImage: `url(${sunProtectionImage})` }">
       <div class="overlay">
         <h1>Stay Safe Under the Sun with SPF365+</h1>
-        <p>Sun exposure is essential, but too much can put your health at risk. Our platform empowers you with real-time UV monitoring, historical melanoma insights, and personalized protection recommendations—helping you make informed decisions about sun safety every day.</p>
+        <p>Sun exposure is essential, but too much can put your health at risk. Our platform empowers you with real-time UV monitoring, historical melanoma insights, and personalized protection recommendations — helping you make informed decisions about sun safety every day.</p>
       </div>
     </section>
 
