@@ -11,9 +11,14 @@
         Between 2012 and 2018, the fluctuations in UV exposure closely align with the rise in melanoma cases. In 2018, when mean UV levels saw a slight drop, the steady increase in melanoma cases also slowed in 2019, suggesting a possible link between reduced UV exposure and a decline in incidence.
       </p>
     </div>
-    <div ref="tableauContainer" class="tableauPlaceholder viz-card">
+    <div class="viz-scroll-wrapper">
+  <div class="viz-card">
+    <div ref="tableauContainer" class="tableauPlaceholder">
       <p v-if="loading" class="loading">Loading Tableau visualization...</p>
     </div>
+  </div>
+</div>
+
 
     <div class="description">
       <h2>Stay Informed & Protected with Our Website</h2>
@@ -100,29 +105,35 @@ export default {
   color: #333;
 }
 
+
+.viz-scroll-wrapper {
+  width: 100%;
+  overflow-x: auto; 
+  white-space: nowrap; 
+}
+
+
 .viz-card {
+  display: inline-block; 
   background: white;
   padding: 20px;
   border-radius: 15px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
   transition: 0.3s ease-in-out;
-  width: 100%; 
-  max-width: 100%; 
-  height: auto; 
-  display: flex;
-  justify-content: center;
-  transform: scale(0.6); 
-  transform-origin: center;
-  align-items: center;
-  overflow: hidden; 
+  min-width: 1200px; 
+  height: auto;
+  transform: scale(0.6);
+  text-align: center;
 }
 
+
 .viz-card object {
-  width: 100% !important;
-  height: 100vh !important;
-  max-width: 100%;
-  max-height: 90vh;
+  width: 100%;
+  min-width: 1200px; 
+  height: 90vh;
+  max-width: none;
 }
+
 
 @media (max-width: 1200px) {
   .viz-card object {
